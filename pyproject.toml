@@ -8,6 +8,12 @@ authors = ["Your Name <you@example.com>"]
 python = "^3.8"
 alembic = "^1.6.2"
 SQLAlchemy = "^1.4.15"
+ipython = "^7.23.1"
+python-dotenv = "^0.17.1"
+psycopg2 = "^2.8.6"
+flake8 = "^3.9.2"
+black = "^21.5b1"
+oitnb = "^0.2.2"
 
 [tool.poetry.dev-dependencies]
 
