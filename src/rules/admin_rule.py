@@ -1,5 +1,6 @@
-from vkbottle.bot import rules, Message
 from typing import Union
+
+from vkbottle.bot import Message, rules
 
 
 class AdminRule(rules.ABCMessageRule):
@@ -8,7 +9,8 @@ class AdminRule(rules.ABCMessageRule):
 
     async def check(self, message: Message) -> Union[dict, bool]:
         items = (
-            await message.ctx_api.messages.get_conversations_by_id(peer_ids=message.peer_id)
+            await message.ctx_api.messages.get_conversations_by_id(
+                peer_ids=message.peer_id)
         ).items
 
         if items:
