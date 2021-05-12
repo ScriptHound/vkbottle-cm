@@ -1,1 +1,1 @@
-import config.db_config
+import config.db_config  # NOQA

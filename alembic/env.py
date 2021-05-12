@@ -1,20 +1,15 @@
-from pathlib import Path
 import os
 import sys
 from logging.config import fileConfig
+from pathlib import Path
 
-from alembic import context
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 
-from config.db_config import (
-    PASSWD,
-    HOST,
-    USER,
-    NAME
-)
-from src.admin.models.base import Base # NOQA
-from src.admin.models.user import User # NOQA
+from alembic import context
+from config.db_config import HOST, NAME, PASSWD, USER
+from src.admin.models.base import Base  # NOQA
+from src.admin.models.user import User  # NOQA
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -35,13 +30,13 @@ sys.path.append(os.getcwd())
 # from alembic.models import Base
 # target_metadata = None
 
-env_path = Path('.') / 'config/.env'
+env_path = Path(".") / "config/.env"
 load_dotenv(dotenv_path=env_path)
 
 target_metadata = Base.metadata
 
 # local sync engine only for running migrations
-engine = create_engine(f'postgresql://{USER}:{PASSWD}@{HOST}/{NAME}')
+engine = create_engine(f"postgresql://{USER}:{PASSWD}@{HOST}/{NAME}")
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:

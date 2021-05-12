@@ -7,9 +7,7 @@ from config.db_config import engine
 
 # at the module level, the global sessionmaker,
 # bound to a specific Engine
-AsyncSession = sessionmaker(engine,
-                            expire_on_commit=False,
-                            class_=AsyncSession)
+AsyncSession = sessionmaker(engine, expire_on_commit=False, class_=AsyncSession)
 
 
 class DBAdapter:
@@ -19,7 +17,7 @@ class DBAdapter:
         try:
             yield session
             await session.commit()
-        except Exception: # NOQA
+        except Exception:  # NOQA
             await session.rollback()
             raise
         finally:

@@ -10,7 +10,8 @@ class AdminRule(rules.ABCMessageRule):
     async def check(self, message: Message) -> Union[dict, bool]:
         items = (
             await message.ctx_api.messages.get_conversations_by_id(
-                peer_ids=message.peer_id)
+                peer_ids=message.peer_id
+            )
         ).items
 
         if items:
