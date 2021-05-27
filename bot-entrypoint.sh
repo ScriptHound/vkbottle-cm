@@ -7,10 +7,8 @@ echo;
 
 echo "Installing vkbottle3"
 python -m pip install -U https://github.com/timoniq/vkbottle/archive/master.zip
-echo;
-
 poetry install
-python -m pip freeze
+echo;
 
 echo "Running migrations"
 alembic upgrade head
