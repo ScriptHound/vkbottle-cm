@@ -11,6 +11,8 @@ services:
             - "5432"
     bot:
         build: .
+        volumes: 
+            - ./:/vkbottle-cm
         depends_on: 
             - db
 volumes: 

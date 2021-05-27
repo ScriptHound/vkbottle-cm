@@ -6,9 +6,7 @@ RUN python -m venv venv
 RUN python -m pip install poetry
 
 COPY pyproject.toml poetry.lock ./
-COPY . .
-
-RUN . venv/bin/activate && poetry install
+COPY . /vkbottle-cm
 
 RUN chmod +x bot-entrypoint.sh
 

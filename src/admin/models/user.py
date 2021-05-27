@@ -5,7 +5,7 @@ from src.admin.models.base import Base
 
 
 class User(Base):
-    __tablename__ = "user"
+    __tablename__ = "auth_user"
     id = Column(Integer, primary_key=True)
     vk_id = Column(String)
     name = Column(Text)
@@ -14,11 +14,11 @@ class User(Base):
     is_whitelisted = Column(Boolean, default=False)
     join_date = Column(Date)
 
-    conversation_id = Column(Integer, ForeignKey("conversation.id"))
+    conversation_id = Column(Integer, ForeignKey("auth_conversation.id"))
 
 
 class Conversation(Base):
-    __tablename__ = "conversation"
+    __tablename__ = "auth_conversation"
     id = Column(Integer, primary_key=True)
     name = Column(String)
     participants_number = Column(Integer)

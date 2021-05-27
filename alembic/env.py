@@ -3,13 +3,11 @@ import sys
 from logging.config import fileConfig
 from pathlib import Path
 
+from alembic import context
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 
-from alembic import context
-from config.db_config import HOST, NAME, PASSWD, USER
-from src.admin.models.base import Base  # NOQA
-from src.admin.models.user import User  # NOQA
+
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -22,6 +20,10 @@ fileConfig(config.config_file_name)
 # current_path = os.path.dirname(os.path.abspath(__file__))
 # ROOT_PATH = os.path.join(current_path, '..')
 sys.path.append(os.getcwd())
+
+from config.db_config import HOST, NAME, PASSWD, USER
+from src.admin.models.base import Base  # NOQA
+from src.admin.models.user import User  # NOQA
 
 # add your model's MetaData object here
 # for 'autogenerate' support
